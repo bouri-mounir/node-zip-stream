@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/archiverjs/node-zip-stream.git"
+    "url": "https://github.com/istex/node-zip-stream.git"
   },
   "bugs": {
-    "url": "https://github.com/archiverjs/node-zip-stream/issues"
+    "url": "https://github.com/istex/node-zip-stream/issues"
   },
   "license": "MIT",
   "main": "index.js",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "archiver-utils": "^2.1.0",
-    "compress-commons": "https://github.com/bouri-mounir/node-compress-commons",
+    "compress-commons": "https://github.com/istex/node-compress-commons",
     "readable-stream": "^3.4.0"
   },
   "devDependencies": {
