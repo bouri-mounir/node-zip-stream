@@ -128,9 +128,26 @@ ZipStream.prototype.entry = function(source, data, callback) {
   }
 
   var entry = new ZipArchiveEntry(data.name);
+  entry.setTime(data.date, this.options.forceLocalTime);
 
   if (data.store) {
     entry.setMethod(0);
+  }
+
+  if (data.comment.length > 0) {
+    entry.setComment(data.comment);
+  }
+
+  if (data.type === 'symlink' && typeof data.mode !== 'number') {
+    data.mode = 40960; // 0120000
+  }
+
+  if (typeof data.mode === 'number') {
+    if (data.type === 'symlink') {
+      data.mode |= 40960;
+    }
+
+    entry.setUnixMode(data.mode);
   }
 
   if (data.type === 'symlink' && typeof data.linkname === 'string') {
